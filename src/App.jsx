@@ -8,45 +8,7 @@ import './styles/main.css';
 import './styles/popup.css';
 import { useLandingPhone } from '@shared/useLandingPhone';
 
-// Función para verificar y usar el Meta Pixel existente
-const initializeMetaPixel = () => {
-  // Verificar si fbq ya existe desde el HTML
-  if (typeof window !== 'undefined' && window.fbq) {
-    console.log('✅ Meta Pixel detectado desde HTML');
-    // Enviar PageView adicional para React SPA
-    window.fbq('track', 'PageView');
-    return true;
-  } else {
-    console.error('❌ Meta Pixel no encontrado en HTML');
-    return false;
-  }
-};
 
-// Función para trackear eventos personalizados
-const trackEvent = (eventName, parameters = {}) => {
-  if (typeof window !== 'undefined' && window.fbq) {
-    window.fbq('track', eventName, parameters);
-    console.log(`📊 Evento trackeado: ${eventName}`, parameters);
-  } else {
-    console.warn('⚠️ Meta Pixel no está disponible para trackear:', eventName);
-  }
-};
-
-// Función para verificar el estado del pixel
-const checkPixelStatus = () => {
-  if (typeof window !== 'undefined') {
-    console.log('🔍 Estado del Meta Pixel:');
-    console.log('- fbq disponible:', !!window.fbq);
-    console.log('- _fbq disponible:', !!window._fbq);
-    console.log('- dataLayer:', window.dataLayer);
-    
-    if (window.fbq) {
-      console.log('✅ Meta Pixel está funcionando correctamente');
-    } else {
-      console.error('❌ Meta Pixel no está disponible');
-    }
-  }
-};
 
 function App() {
   const { phoneData, loading } = useLandingPhone(1);
@@ -54,14 +16,6 @@ function App() {
 
   // Efectos al cargar el componente
   useEffect(() => {
-    // Inicializar Meta Pixel
-    initializeMetaPixel();
-    
-    // Verificar estado del pixel después de un breve delay
-    setTimeout(() => {
-      checkPixelStatus();
-    }, 1000);
-    
     // Comprobar si el webcomponent está correctamente cargado
     const webComponent = document.getElementById('lux-register');
     if (webComponent) {
@@ -127,12 +81,6 @@ function App() {
           <p>✅ ¡Nosotros no tenemos límites de apuestas!</p>
           <p>✅ ¡Retira sin límite!</p>
           <button id="bonus-button" className="bonus-highlight bonus-button" onClick={() => {
-            trackEvent('InitiateCheckout', {
-              content_name: 'MEGABONUS Registration',
-              content_category: 'Registration',
-              value: 2000,
-              currency: 'ARS'
-            });
             setShowPopup(true);
           }}>
             REGISTRATE GRATIS Y OBTENE UN <span className="bonus-amount">MEGABONUS</span> CON TU PRIMER RECARGA
@@ -150,12 +98,6 @@ function App() {
               <h2>¡Elige tu forma de registro!</h2>
               <div className="popup-options">
                 <div className="popup-option telegram-option" onClick={() => {
-                  trackEvent('Lead', {
-                    content_name: 'Telegram Registration',
-                    content_category: 'Registration',
-                    value: 2000,
-                    currency: 'ARS'
-                  });
                   window.open('https://t.me/casino1xclub_bot', '_blank');
                   setShowPopup(false);
                 }}>
@@ -173,12 +115,6 @@ function App() {
                 </div>
                 
                 <div className="popup-option whatsapp-option" onClick={() => {
-                  trackEvent('Lead', {
-                    content_name: 'WhatsApp Registration',
-                    content_category: 'Registration',
-                    value: 2000,
-                    currency: 'ARS'
-                  });
                   window.open(phoneData.whatsapp_link, '_blank');
                   setShowPopup(false);
                 }}>
