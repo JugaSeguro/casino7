@@ -11,7 +11,7 @@ import { useLandingPhone } from '@shared/useLandingPhone';
 
 
 function App() {
-  const { phoneData, loading } = useLandingPhone(1);
+  const { phoneData, loading, error } = useLandingPhone();
   const [showPopup, setShowPopup] = useState(false);
 
   // Efectos al cargar el componente
