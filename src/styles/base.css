@@ -10,9 +10,9 @@
 }
 
 body, html {
-  height: 100%;
   margin: 0;
   overflow-x: hidden;
+  overflow-y: auto;
   font-family: 'Roboto', Arial, sans-serif;
   color: #ffffff;
   background-color: #000000;
@@ -20,7 +20,7 @@ body, html {
 
 #root {
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   position: relative;
   z-index: 1;
 }
@@ -30,7 +30,6 @@ body, html {
   position: relative;
   z-index: 10;
   min-height: 100vh;
-  height: 100vh;
   display: grid;
   grid-template-rows: auto auto 1fr auto;
   grid-template-areas: 
@@ -40,7 +39,7 @@ body, html {
     "buttons";
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 /* Ajustes responsive para main-content */
