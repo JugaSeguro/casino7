@@ -103,6 +103,7 @@ function App() {
                   <li>📞 Atención personal</li>
                   <li>💰 Bono bienvenida</li>
                   <li>🎯 Soporte directo</li>
+                  <li>🔥 Registro express</li>
                 </ul>
                 <button className="option-button whatsapp-btn">Registrarme Ahora</button>
               </div>
