@@ -14,14 +14,14 @@
 /* Estilos para las opciones de registro integradas */
 .registration-options {
   grid-area: registration;
-  margin-top: 30px;
+  margin-top: 15px;
   text-align: center;
 }
 
 .options-title {
   color: #fff;
   font-size: 28px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -33,7 +33,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -176,7 +176,7 @@
   
   .options-title {
     font-size: 24px;
-    margin-bottom: 25px;
+    margin-bottom: 12px;
   }
   
   .option-icon {

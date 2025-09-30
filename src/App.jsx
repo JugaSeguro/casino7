@@ -114,10 +114,6 @@ function App() {
             <p>Regístrate totalmente gratis en la plataforma más segura de Argentina. Contamos con más de 12000 Slots, la mejor deportiva y el mejor casino en vivo.</p>
             <p>✅ ¡Nosotros no tenemos límites de apuestas!</p>
             <p>✅ ¡Retira sin límite!</p>
-            
-            <div className="bonus-highlight bonus-button megabonus-main">
-              REGISTRATE GRATIS Y OBTENE UN <span className="bonus-amount">MEGABONUS</span> CON TU PRIMER RECARGA
-            </div>
           </div>
 
       </main>

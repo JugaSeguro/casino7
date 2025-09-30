@@ -8,6 +8,7 @@
   position: relative;
   text-align: center;
   padding: 0 20px;
+  margin-top: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -357,12 +358,9 @@
 /* Ajustes para dispositivos móviles */
 @media (max-width: 768px) {
   .promo-text {
-    top: 190px; /* Ajustado para dejar espacio al título */
-    max-height: 45vh; /* Reducido para evitar superposición con botones */
-    padding-bottom: 100px; /* Aumentado para dejar espacio a los botones */
     gap: 8px; /* Reducido para compactar el contenido */
     padding: 0 15px;
-    width: 100%;
+    margin-top: 10px;
   }
   
   .promo-text p {
@@ -416,11 +414,9 @@
 /* Ajustes para dispositivos muy pequeños */
 @media (max-width: 480px) {
   .promo-text {
-    top: 180px; /* Ajustado para dejar espacio al título */
-    max-height: 45vh; /* Reducido para evitar superposición con botones */
     gap: 6px; /* Reducido para compactar el contenido */
     padding: 0 12px;
-    padding-bottom: 120px; /* Aumentado para dejar espacio a los botones */
+    margin-top: 8px;
   }
   
   .promo-text p {
