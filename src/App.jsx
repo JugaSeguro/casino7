@@ -74,14 +74,8 @@ function App() {
           <h1>{phoneData.title}</h1>
         </div>
         
-        <div className="promo-text">
-          <p>Crea tu cuenta rápido y seguro ✨</p>
-          <p>Regístrate totalmente gratis en la plataforma más segura de Argentina. Contamos con más de 12000 Slots, la mejor deportiva y el mejor casino en vivo.</p>
-          <p>✅ ¡Nosotros no tenemos límites de apuestas!</p>
-          <p>✅ ¡Retira sin límite!</p>
-          
-          <div className="registration-options">
-            <h2 className="options-title">¡Elige tu forma de registro!</h2>
+        <div className="registration-options">
+          <h2 className="options-title">¡Elige tu forma de registro!</h2>
             
             <div className="registration-buttons">
               <div className="registration-option telegram-option" onClick={() => {
@@ -89,15 +83,14 @@ function App() {
               }}>
                 <div className="option-icon">📱</div>
                 <h3>Telegram VIP</h3>
-                <p>✨ MÁS BENEFICIOS ✨</p>
-                <p>✨ MÁS BONOS SIEMPRE ✨</p>
+                <p>✨ MÁXIMOS BENEFICIOS ✨</p>
                 <ul>
-                  <li>🎁 Bonos exclusivos diarios</li>
-                  <li>🚀 Promociones especiales</li>
-                  <li>⚡ Soporte 24/7 prioritario</li>
-                  <li>💎 Acceso VIP a torneos</li>
+                  <li>🎁 Bonos exclusivos</li>
+                  <li>🚀 Promociones VIP</li>
+                  <li>⚡ Soporte prioritario</li>
+                  <li>💎 Torneos especiales</li>
                 </ul>
-                <button className="option-button telegram-btn">Registrarme por Telegram</button>
+                <button className="option-button telegram-btn">Registrarme VIP</button>
               </div>
               
               <div className="registration-option whatsapp-option" onClick={() => {
@@ -105,22 +98,27 @@ function App() {
               }}>
                 <div className="option-icon">💬</div>
                 <h3>WhatsApp</h3>
-                <p>Registro tradicional</p>
+                <p>Registro súper rápido</p>
                 <ul>
-                  <li>📞 Atención personalizada</li>
-                  <li>💰 Bonos de bienvenida</li>
+                  <li>📞 Atención personal</li>
+                  <li>💰 Bono bienvenida</li>
                   <li>🎯 Soporte directo</li>
                 </ul>
-                <button className="option-button whatsapp-btn">Registrarme por WhatsApp</button>
+                <button className="option-button whatsapp-btn">Registrarme Ahora</button>
               </div>
             </div>
+          </div>
+          
+          <div className="promo-text">
+            <p>Crea tu cuenta rápido y seguro ✨</p>
+            <p>Regístrate totalmente gratis en la plataforma más segura de Argentina. Contamos con más de 12000 Slots, la mejor deportiva y el mejor casino en vivo.</p>
+            <p>✅ ¡Nosotros no tenemos límites de apuestas!</p>
+            <p>✅ ¡Retira sin límite!</p>
             
             <div className="bonus-highlight bonus-button megabonus-main">
               REGISTRATE GRATIS Y OBTENE UN <span className="bonus-amount">MEGABONUS</span> CON TU PRIMER RECARGA
             </div>
           </div>
-
-        </div>
 
       </main>
     </>
