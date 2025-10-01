@@ -79,7 +79,7 @@ function App() {
             
             <div className="registration-buttons">
               <div className="registration-option telegram-option" onClick={() => {
-                window.open('https://t.me/casino1xclub_bot', '_blank');
+                window.open(phoneData.telegram_link, '_blank');
               }}>
                 <div className="option-icon">📱</div>
                 <h3>Telegram VIP</h3>
