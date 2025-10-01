@@ -17,6 +17,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 const DEFAULT_PHONE = {
   phone_number: '+5491123456789',
   whatsapp_link: 'https://wa.me/5491123456789',
+  telegram_link: 'https://t.me/jugadirecto',
   description: 'Número por defecto',
   title: 'Casino por defecto'
 };
@@ -62,7 +63,7 @@ export const useLandingPhone = (landingNumber) => {
       // Intentar obtener número específico desde Supabase
       const { data, error: supabaseError } = await supabase
         .from('landing_phones')
-        .select('whatsapp_link, description, is_active, individual_title, individual_whatsapp_link, use_individual_settings')
+        .select('whatsapp_link, telegram_link, description, is_active, individual_title, individual_whatsapp_link, individual_telegram_link, use_individual_settings, use_individual_telegram')
         .eq('landing_number', finalLandingNumber)
         .eq('is_active', true)
         .single();
@@ -76,14 +77,17 @@ export const useLandingPhone = (landingNumber) => {
         
         // Decidir si usar configuración individual o por grupos
         const useIndividualWhatsApp = data.use_individual_settings && data.individual_whatsapp_link;
+        const useIndividualTelegram = data.use_individual_telegram && data.individual_telegram_link;
         const useIndividualTitle = data.use_individual_settings && data.individual_title;
         
         setPhoneData({
           phone_number: DEFAULT_PHONE.phone_number, // Usar siempre el número por defecto ya que no está en la tabla
           whatsapp_link: useIndividualWhatsApp ? data.individual_whatsapp_link : (data.whatsapp_link || DEFAULT_PHONE.whatsapp_link),
+          telegram_link: useIndividualTelegram ? data.individual_telegram_link : (data.telegram_link || DEFAULT_PHONE.telegram_link),
           description: data.description || DEFAULT_PHONE.description,
           title: useIndividualTitle ? data.individual_title : DEFAULT_PHONE.title,
-          useIndividualSettings: data.use_individual_settings || false
+          useIndividualSettings: data.use_individual_settings || false,
+          useIndividualTelegram: data.use_individual_telegram || false
         });
       } else {
         console.log(`No se encontró número para landing ${landingNumber}, usando por defecto`);
