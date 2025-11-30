@@ -16,8 +16,14 @@ export function initFacebookPixel(pixelId, locale = 'en_US') {
     })(window, document, 'script', `https://connect.facebook.net/${locale}/fbevents.js`);
   }
 
+  if (window.__PIXEL_INIT_DONE && (currentId === pixelId || !currentId)) {
+    initialized = true;
+    currentId = pixelId;
+    return;
+  }
   if (!initialized || currentId !== pixelId) {
     window.fbq('init', pixelId);
+    window.__PIXEL_INIT_DONE = true;
     initialized = true;
     currentId = pixelId;
   }

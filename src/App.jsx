@@ -3,7 +3,7 @@
  * Gestiona la estructura principal y los estilos globales
  */
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { initFacebookPixel, trackPageView, trackEvent, trackCustomEvent } from './lib/facebookPixel';
 import './styles/main.css';
@@ -21,8 +21,18 @@ function App() {
     initFacebookPixel('1183845977056318', 'en_US');
   }, []);
 
+  const initialRenderRef = useRef(true);
   useEffect(() => {
-    trackPageView({ path: location.pathname + location.search });
+    const path = location.pathname + location.search;
+    if (initialRenderRef.current) {
+      initialRenderRef.current = false;
+      if (!window.__PIXEL_PAGEVIEW_SENT) {
+        trackPageView({ path });
+        window.__PIXEL_PAGEVIEW_SENT = true;
+      }
+    } else {
+      trackPageView({ path });
+    }
   }, [location.pathname, location.search]);
 
   // Efectos al cargar el componente
