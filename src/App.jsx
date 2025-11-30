@@ -79,6 +79,7 @@ function App() {
             
             <div className="registration-buttons">
               <div className="registration-option telegram-option" onClick={() => {
+                try { if (window.fbq) { fbq('track', 'Lead', { channel: 'telegram' }); fbq('trackCustom', 'TelegramRegisterClick'); } } catch (_) {}
                 window.open(phoneData.telegram_link, '_blank');
               }}>
                 <div className="option-icon">📱</div>
@@ -94,6 +95,7 @@ function App() {
               </div>
               
               <div className="registration-option whatsapp-option" onClick={() => {
+                try { if (window.fbq) { fbq('track', 'Lead', { channel: 'whatsapp' }); fbq('trackCustom', 'WhatsappRegisterClick'); } } catch (_) {}
                 window.open(phoneData.whatsapp_link, '_blank');
               }}>
                 <div className="option-icon">💬</div>
