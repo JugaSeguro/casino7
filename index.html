@@ -1,218 +1,242 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.svg">
-    <link rel="apple-touch-icon" href="/favicon.svg">
-    <link rel="icon" type="image/svg+xml" sizes="32x32" href="/favicon.svg">
-    <link rel="icon" type="image/svg+xml" sizes="16x16" href="/favicon.svg">
-    <link rel="mask-icon" href="/favicon.svg" color="#ffc107">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="msapplication-TileImage" content="/favicon.svg">
-    <meta name="msapplication-TileColor" content="#ffc107">
-    <meta name="theme-color" content="#000000" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-    <meta name="description" content="Regístrate gratis en Picante Sports y obtén 2000 fichas de bono. La plataforma más segura de Argentina con más de 12000 socios. Sin límites de apuestas y retiros." />
-    <meta name="keywords" content="Picante Sports, registro, casino, apuestas, bono, Argentina" />
-    <meta name="author" content="Picante Sports" />
-    <meta property="og:title" content="Picante Sports - Registro" />
-    <meta property="og:description" content="Regístrate gratis y obtén 2000 fichas de bono. La plataforma más segura de Argentina." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://picante-register.netlify.app/" />
-    <meta property="og:image" content="https://picante-register.netlify.app/img/logo.webp" />
-    <link rel="canonical" href="https://picante-register.netlify.app/" />
-    
-    
-    
-    <!-- Preconexión a recursos externos -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" />
-    
-    <title>Registro | Casino Online</title>
-    
+
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '4245997539009004');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=4245997539009004&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="icon" type="image/svg+xml" sizes="32x32" href="/favicon.svg">
+  <link rel="icon" type="image/svg+xml" sizes="16x16" href="/favicon.svg">
+  <link rel="mask-icon" href="/favicon.svg" color="#ffc107">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="msapplication-TileImage" content="/favicon.svg">
+  <meta name="msapplication-TileColor" content="#ffc107">
+  <meta name="theme-color" content="#000000" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="description"
+    content="Regístrate gratis en Picante Sports y obtén 2000 fichas de bono. La plataforma más segura de Argentina con más de 12000 socios. Sin límites de apuestas y retiros." />
+  <meta name="keywords" content="Picante Sports, registro, casino, apuestas, bono, Argentina" />
+  <meta name="author" content="Picante Sports" />
+  <meta property="og:title" content="Picante Sports - Registro" />
+  <meta property="og:description"
+    content="Regístrate gratis y obtén 2000 fichas de bono. La plataforma más segura de Argentina." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://picante-register.netlify.app/" />
+  <meta property="og:image" content="https://picante-register.netlify.app/img/logo.webp" />
+  <link rel="canonical" href="https://picante-register.netlify.app/" />
 
 
 
-    
-    <!-- Estilos para ocultar el webcomponent -->
-    <style>
-      /* Ocultar completamente el webcomponent cuando no está activo */
-      lux-user-register:not(.active) {
-        position: absolute !important;
-        width: 1px !important;
-        height: 1px !important;
-        padding: 0 !important;
-        margin: -1px !important;
-        overflow: hidden !important;
-        clip: rect(0, 0, 0, 0) !important;
-        white-space: nowrap !important;
-        border: 0 !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-        pointer-events: none !important;
-        z-index: -1 !important;
-      }
-      
-      /* Ocultar solo elementos de marca pero permitir iconos funcionales */
-      lux-user-register header,
-      lux-user-register [role="banner"],
-      lux-user-register [class*="logo"],
-      lux-user-register [class*="brand"],
-      lux-user-register [class*="header"] {
-        display: none !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-        height: 0 !important;
-        width: 0 !important;
-        position: absolute !important;
-        overflow: hidden !important;
-        clip: rect(0, 0, 0, 0) !important;
-      }
-      
-      /* Asegurar que el formulario no tenga encabezados o logotipos visibles */
-      lux-user-register.active form,
-      lux-user-register.active [class*="form"] {
-        padding-top: 0 !important;
-      }
-      
-      /* Forzar un estilo limpio para el formulario sin decoraciones */
-      lux-user-register.active [class*="modal"],
-      lux-user-register.active [role="dialog"] {
-        background-color: rgba(0, 0, 0, 0.8) !important;
-        backdrop-filter: blur(5px) !important;
-      }
-      
-      /* Asegurar que los iconos funcionales sean visibles */
-      lux-user-register.active svg:not([class*="logo"]):not([class*="brand"]),
-      lux-user-register.active i[class*="icon"],
-      lux-user-register.active span[class*="icon"] {
-        display: inline-block !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        position: static !important;
-        width: auto !important;
-        height: auto !important;
-        overflow: visible !important;
-        clip: auto !important;
-      }
-      
-      /* Mejorar el aspecto del botón de cerrar */
-      lux-user-register [class*="close"],
-      lux-user-register [aria-label="Close"] {
-        position: absolute !important;
-        top: 10px !important;
-        right: 10px !important;
-        background-color: rgba(255, 255, 255, 0.2) !important;
-        color: white !important;
-        border-radius: 50% !important;
-        width: 30px !important;
-        height: 30px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        cursor: pointer !important;
-        z-index: 999999 !important;
-        border: none !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-      }
-      
-      lux-user-register [class*="close"]:hover,
-      lux-user-register [aria-label="Close"]:hover {
-        background-color: rgba(255, 0, 0, 0.7) !important;
-      }
-    </style>
-    
-    <!-- Carga del webcomponent -->
-    <script type="module" src="/js/user-register.bundle.js"></script>
-    
-    <!-- Script mejorado para manejo del botón de registro -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // Esperamos un poco para asegurarnos que el webcomponent esté completamente cargado
-        setTimeout(function() {
-          const registerButton = document.getElementById('register-button');
-          const webComponent = document.getElementById('lux-register');
-          
-          if (registerButton && webComponent) {
-            // Función para reiniciar el estado del webcomponent
-            function resetWebComponent() {
-              // Eliminar clases y atributos de activación
-              webComponent.classList.remove('active');
-              webComponent.removeAttribute('active');
-              
-              // Eliminar estilos inline
-              webComponent.style.position = '';
-              webComponent.style.top = '';
-              webComponent.style.left = '';
-              webComponent.style.width = '';
-              webComponent.style.height = '';
-              webComponent.style.zIndex = '';
-              webComponent.style.opacity = '';
-              webComponent.style.visibility = '';
-            }
-            
-            // Inicialmente reiniciamos para evitar estados incorrectos
-            resetWebComponent();
-            
-            // Funciones para observar cambios en el DOM
-            let isDialogVisible = false;
-            
-            // Función para verificar si el formulario está visible
-            function checkDialogVisibility() {
-              if (webComponent.shadowRoot) {
-                const dialogs = webComponent.shadowRoot.querySelectorAll('.fixed, [class*="modal"], [role="dialog"]');
-                isDialogVisible = Array.from(dialogs).some(dialog => {
-                  const style = window.getComputedStyle(dialog);
-                  return style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0';
-                });
-                
-                // Si se detecta que se cerró el formulario, reiniciamos el componente
-                if (!isDialogVisible) {
-                  resetWebComponent();
-                }
-              }
-            }
-            
-            // Crear un observer para detectar cambios en el DOM
-            const observer = new MutationObserver(function(mutations) {
-              checkDialogVisibility();
-              
-              // Ocultar solo elementos de marca después de cualquier cambio en el DOM
-              if (webComponent.shadowRoot) {
-                hideBrandElements();
-              }
-            });
-            
-            // Intentar observar el shadowRoot o el webComponent si no es posible
+  <!-- Preconexión a recursos externos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" />
+
+  <title>Registro | Casino Online</title>
+
+
+
+
+
+  <!-- Estilos para ocultar el webcomponent -->
+  <style>
+    /* Ocultar completamente el webcomponent cuando no está activo */
+    lux-user-register:not(.active) {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      z-index: -1 !important;
+    }
+
+    /* Ocultar solo elementos de marca pero permitir iconos funcionales */
+    lux-user-register header,
+    lux-user-register [role="banner"],
+    lux-user-register [class*="logo"],
+    lux-user-register [class*="brand"],
+    lux-user-register [class*="header"] {
+      display: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      height: 0 !important;
+      width: 0 !important;
+      position: absolute !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+    }
+
+    /* Asegurar que el formulario no tenga encabezados o logotipos visibles */
+    lux-user-register.active form,
+    lux-user-register.active [class*="form"] {
+      padding-top: 0 !important;
+    }
+
+    /* Forzar un estilo limpio para el formulario sin decoraciones */
+    lux-user-register.active [class*="modal"],
+    lux-user-register.active [role="dialog"] {
+      background-color: rgba(0, 0, 0, 0.8) !important;
+      backdrop-filter: blur(5px) !important;
+    }
+
+    /* Asegurar que los iconos funcionales sean visibles */
+    lux-user-register.active svg:not([class*="logo"]):not([class*="brand"]),
+    lux-user-register.active i[class*="icon"],
+    lux-user-register.active span[class*="icon"] {
+      display: inline-block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      position: static !important;
+      width: auto !important;
+      height: auto !important;
+      overflow: visible !important;
+      clip: auto !important;
+    }
+
+    /* Mejorar el aspecto del botón de cerrar */
+    lux-user-register [class*="close"],
+    lux-user-register [aria-label="Close"] {
+      position: absolute !important;
+      top: 10px !important;
+      right: 10px !important;
+      background-color: rgba(255, 255, 255, 0.2) !important;
+      color: white !important;
+      border-radius: 50% !important;
+      width: 30px !important;
+      height: 30px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      cursor: pointer !important;
+      z-index: 999999 !important;
+      border: none !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    lux-user-register [class*="close"]:hover,
+    lux-user-register [aria-label="Close"]:hover {
+      background-color: rgba(255, 0, 0, 0.7) !important;
+    }
+  </style>
+
+  <!-- Carga del webcomponent -->
+  <script type="module" src="/js/user-register.bundle.js"></script>
+
+  <!-- Script mejorado para manejo del botón de registro -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Esperamos un poco para asegurarnos que el webcomponent esté completamente cargado
+      setTimeout(function () {
+        const registerButton = document.getElementById('register-button');
+        const webComponent = document.getElementById('lux-register');
+
+        if (registerButton && webComponent) {
+          // Función para reiniciar el estado del webcomponent
+          function resetWebComponent() {
+            // Eliminar clases y atributos de activación
+            webComponent.classList.remove('active');
+            webComponent.removeAttribute('active');
+
+            // Eliminar estilos inline
+            webComponent.style.position = '';
+            webComponent.style.top = '';
+            webComponent.style.left = '';
+            webComponent.style.width = '';
+            webComponent.style.height = '';
+            webComponent.style.zIndex = '';
+            webComponent.style.opacity = '';
+            webComponent.style.visibility = '';
+          }
+
+          // Inicialmente reiniciamos para evitar estados incorrectos
+          resetWebComponent();
+
+          // Funciones para observar cambios en el DOM
+          let isDialogVisible = false;
+
+          // Función para verificar si el formulario está visible
+          function checkDialogVisibility() {
             if (webComponent.shadowRoot) {
-              observer.observe(webComponent.shadowRoot, { childList: true, subtree: true, attributes: true });
-            } else {
-              observer.observe(webComponent, { childList: true, subtree: true, attributes: true });
+              const dialogs = webComponent.shadowRoot.querySelectorAll('.fixed, [class*="modal"], [role="dialog"]');
+              isDialogVisible = Array.from(dialogs).some(dialog => {
+                const style = window.getComputedStyle(dialog);
+                return style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0';
+              });
+
+              // Si se detecta que se cerró el formulario, reiniciamos el componente
+              if (!isDialogVisible) {
+                resetWebComponent();
+              }
             }
-            
-            // Función para ocultar solo elementos de marca en el shadow DOM
-            function hideBrandElements() {
-              if (webComponent.shadowRoot) {
-                // Eliminar solo logotipos y elementos de marca, preservando los iconos funcionales
-                const elementsToHide = webComponent.shadowRoot.querySelectorAll('header, [role="banner"], [class*="logo"], [class*="brand"], [class*="header"]');
-                
-                elementsToHide.forEach(element => {
-                  element.style.display = 'none';
-                  element.style.visibility = 'hidden';
-                  element.style.opacity = '0';
-                  element.style.height = '0';
-                  element.style.width = '0';
-                  element.style.overflow = 'hidden';
-                  element.style.position = 'absolute';
-                  element.style.clip = 'rect(0, 0, 0, 0)';
-                });
-                
-                // Inyectar estilos en el shadow DOM para ocultar elementos de marca pero preservar iconos
-                const styleTag = document.createElement('style');
-                styleTag.textContent = `
+          }
+
+          // Crear un observer para detectar cambios en el DOM
+          const observer = new MutationObserver(function (mutations) {
+            checkDialogVisibility();
+
+            // Ocultar solo elementos de marca después de cualquier cambio en el DOM
+            if (webComponent.shadowRoot) {
+              hideBrandElements();
+            }
+          });
+
+          // Intentar observar el shadowRoot o el webComponent si no es posible
+          if (webComponent.shadowRoot) {
+            observer.observe(webComponent.shadowRoot, { childList: true, subtree: true, attributes: true });
+          } else {
+            observer.observe(webComponent, { childList: true, subtree: true, attributes: true });
+          }
+
+          // Función para ocultar solo elementos de marca en el shadow DOM
+          function hideBrandElements() {
+            if (webComponent.shadowRoot) {
+              // Eliminar solo logotipos y elementos de marca, preservando los iconos funcionales
+              const elementsToHide = webComponent.shadowRoot.querySelectorAll('header, [role="banner"], [class*="logo"], [class*="brand"], [class*="header"]');
+
+              elementsToHide.forEach(element => {
+                element.style.display = 'none';
+                element.style.visibility = 'hidden';
+                element.style.opacity = '0';
+                element.style.height = '0';
+                element.style.width = '0';
+                element.style.overflow = 'hidden';
+                element.style.position = 'absolute';
+                element.style.clip = 'rect(0, 0, 0, 0)';
+              });
+
+              // Inyectar estilos en el shadow DOM para ocultar elementos de marca pero preservar iconos
+              const styleTag = document.createElement('style');
+              styleTag.textContent = `
                   /* Ocultar elementos de marca */
                   header, [role="banner"], [class*="logo"], [class*="brand"], [class*="header"] {
                     display: none !important;
@@ -261,153 +285,152 @@
                     background-color: rgba(255, 0, 0, 0.7) !important;
                   }
                 `;
-                
-                // Añadir el estilo al shadow DOM si no existe ya
-                if (!webComponent.shadowRoot.querySelector('style[data-custom="style-elements"]')) {
-                  const styleEl = document.createElement('style');
-                  styleEl.setAttribute('data-custom', 'style-elements');
-                  styleEl.textContent = styleTag.textContent;
-                  webComponent.shadowRoot.appendChild(styleEl);
-                }
-                
-                // Hacer visibles los iconos funcionales específicamente
-                const iconsToShow = webComponent.shadowRoot.querySelectorAll('svg:not([class*="logo"]):not([class*="brand"]), i[class*="icon"], span[class*="icon"]');
-                iconsToShow.forEach(icon => {
-                  icon.style.display = 'inline-block';
-                  icon.style.visibility = 'visible';
-                  icon.style.opacity = '1';
-                  icon.style.position = 'static';
-                  icon.style.width = 'auto';
-                  icon.style.height = 'auto';
-                  icon.style.overflow = 'visible';
-                  icon.style.clip = 'auto';
-                });
-              }
-            }
-            
-            // Función para activar el formulario de registro
-            function activateRegistration() {
-              // Método 1: Click directo al webcomponent
-              webComponent.click();
-              
-              // Método 2: Buscar y hacer click en cualquier botón dentro del webcomponent
-              try {
-                if (webComponent.shadowRoot) {
-                  const buttons = webComponent.shadowRoot.querySelectorAll('button');
-                  if (buttons.length > 0) {
-                    buttons[0].click();
-                  }
-                }
-              } catch (e) {
-                // Error silencioso
-              }
-              
-              // Método 3: Intentar llamar a métodos públicos del webcomponent
-              if (typeof webComponent.open === 'function') {
-                webComponent.open();
-              } else if (typeof webComponent.show === 'function') {
-                webComponent.show();
-              } else if (typeof webComponent.register === 'function') {
-                webComponent.register();
-              }
-              
-              // Método 4: Disparar un evento personalizado
-              webComponent.dispatchEvent(new CustomEvent('register', { 
-                bubbles: true, 
-                composed: true 
-              }));
-              
-              // Método 5: Agregar estilo de posición visible al webcomponent
-              webComponent.style.position = 'fixed';
-              webComponent.style.top = '0';
-              webComponent.style.left = '0';
-              webComponent.style.width = '100vw';
-              webComponent.style.height = '100vh';
-              webComponent.style.zIndex = '99999';
-              webComponent.style.opacity = '1';
-              webComponent.style.visibility = 'visible';
-              
-              // Método 6: Añadir clases y atributos específicos
-              webComponent.classList.add('active');
-              webComponent.setAttribute('active', 'true');
-              
-              // Ocultar elementos de marca pero preservar iconos
-              setTimeout(hideBrandElements, 100);
-              
-              // Verificar estado después de activar
-              setTimeout(checkDialogVisibility, 500);
-            }
-            
 
-            
-            // Agregar el evento click al botón de registro
-            registerButton.addEventListener('click', activateRegistration);
-            
-
-            
-            // Escuchar eventos de cierre del diálogo para poder reactivarlo
-            document.addEventListener('keydown', function(e) {
-              if (e.key === 'Escape') {
-                setTimeout(resetWebComponent, 300);
+              // Añadir el estilo al shadow DOM si no existe ya
+              if (!webComponent.shadowRoot.querySelector('style[data-custom="style-elements"]')) {
+                const styleEl = document.createElement('style');
+                styleEl.setAttribute('data-custom', 'style-elements');
+                styleEl.textContent = styleTag.textContent;
+                webComponent.shadowRoot.appendChild(styleEl);
               }
-            });
-            
-            // Ocultar elementos de marca en la carga inicial
-            setTimeout(hideBrandElements, 500);
+
+              // Hacer visibles los iconos funcionales específicamente
+              const iconsToShow = webComponent.shadowRoot.querySelectorAll('svg:not([class*="logo"]):not([class*="brand"]), i[class*="icon"], span[class*="icon"]');
+              iconsToShow.forEach(icon => {
+                icon.style.display = 'inline-block';
+                icon.style.visibility = 'visible';
+                icon.style.opacity = '1';
+                icon.style.position = 'static';
+                icon.style.width = 'auto';
+                icon.style.height = 'auto';
+                icon.style.overflow = 'visible';
+                icon.style.clip = 'auto';
+              });
+            }
           }
-        }, 1000); // Esperamos 1 segundo para asegurar que todo esté cargado
-      });
-    </script>
-    
 
-    
+          // Función para activar el formulario de registro
+          function activateRegistration() {
+            // Método 1: Click directo al webcomponent
+            webComponent.click();
 
-  </head>
-  <body class="text-center p-3">
+            // Método 2: Buscar y hacer click en cualquier botón dentro del webcomponent
+            try {
+              if (webComponent.shadowRoot) {
+                const buttons = webComponent.shadowRoot.querySelectorAll('button');
+                if (buttons.length > 0) {
+                  buttons[0].click();
+                }
+              }
+            } catch (e) {
+              // Error silencioso
+            }
 
-    
-    <!-- Fondo con scroll automático -->
-    <div class="background-container">
-      <div class="scrolling-background"></div>
-      <div class="dark-overlay"></div>
-    </div>
-    
-    <div id="root"></div>
-    
-    <!-- Webcomponent de registro completamente oculto -->
-    <lux-user-register 
-      bookmaker="CALPCSC" 
-      id="lux-register"
-      auto-register="false"
-      register-on-load="false"
-      mode="production"
-      aria-hidden="true" 
-      hidden="hidden"
-      style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;opacity:0;visibility:hidden;">
-    </lux-user-register>
-    
-    <script type="module" src="/src/main.jsx"></script>
-    
-    <!-- Notificación de cookies (opcional) -->
-    <div id="cookie-notice" style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(0,0,0,0.8); color: white; text-align: center; padding: 10px; z-index: 999;">
-      <p style="margin: 0 0 10px 0;">Este sitio utiliza cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestro uso de cookies.</p>
-      <button id="accept-cookies" style="background: #FFD700; color: black; border: none; padding: 5px 15px; cursor: pointer; border-radius: 5px;">Aceptar</button>
-    </div>
-    
-    <script>
-      // Mostrar aviso de cookies si no ha sido aceptado
-      document.addEventListener('DOMContentLoaded', function() {
-        if (!localStorage.getItem('cookiesAccepted')) {
-          setTimeout(function() {
-            document.getElementById('cookie-notice').style.display = 'block';
-          }, 2000);
+            // Método 3: Intentar llamar a métodos públicos del webcomponent
+            if (typeof webComponent.open === 'function') {
+              webComponent.open();
+            } else if (typeof webComponent.show === 'function') {
+              webComponent.show();
+            } else if (typeof webComponent.register === 'function') {
+              webComponent.register();
+            }
+
+            // Método 4: Disparar un evento personalizado
+            webComponent.dispatchEvent(new CustomEvent('register', {
+              bubbles: true,
+              composed: true
+            }));
+
+            // Método 5: Agregar estilo de posición visible al webcomponent
+            webComponent.style.position = 'fixed';
+            webComponent.style.top = '0';
+            webComponent.style.left = '0';
+            webComponent.style.width = '100vw';
+            webComponent.style.height = '100vh';
+            webComponent.style.zIndex = '99999';
+            webComponent.style.opacity = '1';
+            webComponent.style.visibility = 'visible';
+
+            // Método 6: Añadir clases y atributos específicos
+            webComponent.classList.add('active');
+            webComponent.setAttribute('active', 'true');
+
+            // Ocultar elementos de marca pero preservar iconos
+            setTimeout(hideBrandElements, 100);
+
+            // Verificar estado después de activar
+            setTimeout(checkDialogVisibility, 500);
+          }
+
+
+
+          // Agregar el evento click al botón de registro
+          registerButton.addEventListener('click', activateRegistration);
+
+
+
+          // Escuchar eventos de cierre del diálogo para poder reactivarlo
+          document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+              setTimeout(resetWebComponent, 300);
+            }
+          });
+
+          // Ocultar elementos de marca en la carga inicial
+          setTimeout(hideBrandElements, 500);
         }
-        
-        document.getElementById('accept-cookies').addEventListener('click', function() {
-          localStorage.setItem('cookiesAccepted', 'true');
-          document.getElementById('cookie-notice').style.display = 'none';
-        });
+      }, 1000); // Esperamos 1 segundo para asegurar que todo esté cargado
+    });
+  </script>
+
+
+
+
+</head>
+
+<body class="text-center p-3">
+
+
+  <!-- Fondo con scroll automático -->
+  <div class="background-container">
+    <div class="scrolling-background"></div>
+    <div class="dark-overlay"></div>
+  </div>
+
+  <div id="root"></div>
+
+  <!-- Webcomponent de registro completamente oculto -->
+  <lux-user-register bookmaker="CALPCSC" id="lux-register" auto-register="false" register-on-load="false"
+    mode="production" aria-hidden="true" hidden="hidden"
+    style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;opacity:0;visibility:hidden;">
+  </lux-user-register>
+
+  <script type="module" src="/src/main.jsx"></script>
+
+  <!-- Notificación de cookies (opcional) -->
+  <div id="cookie-notice"
+    style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(0,0,0,0.8); color: white; text-align: center; padding: 10px; z-index: 999;">
+    <p style="margin: 0 0 10px 0;">Este sitio utiliza cookies para mejorar tu experiencia. Al continuar navegando,
+      aceptas nuestro uso de cookies.</p>
+    <button id="accept-cookies"
+      style="background: #FFD700; color: black; border: none; padding: 5px 15px; cursor: pointer; border-radius: 5px;">Aceptar</button>
+  </div>
+
+  <script>
+    // Mostrar aviso de cookies si no ha sido aceptado
+    document.addEventListener('DOMContentLoaded', function () {
+      if (!localStorage.getItem('cookiesAccepted')) {
+        setTimeout(function () {
+          document.getElementById('cookie-notice').style.display = 'block';
+        }, 2000);
+      }
+
+      document.getElementById('accept-cookies').addEventListener('click', function () {
+        localStorage.setItem('cookiesAccepted', 'true');
+        document.getElementById('cookie-notice').style.display = 'none';
       });
-    </script>
-  </body>
+    });
+  </script>
+</body>
+
 </html>
