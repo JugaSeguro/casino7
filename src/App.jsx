@@ -3,7 +3,9 @@
  * Gestiona la estructura principal y los estilos globales
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { initFacebookPixel, trackPageView, trackEvent, trackCustomEvent } from './lib/facebookPixel';
 import './styles/main.css';
 import './styles/popup.css';
 import { useLandingPhone } from '@shared/useLandingPhone';
@@ -11,38 +13,35 @@ import { useLandingPhone } from '@shared/useLandingPhone';
 
 
 function App() {
-  const { phoneData, loading, error } = useLandingPhone();
+  const { phoneData, loading } = useLandingPhone();
+  const location = useLocation();
 
   // Efectos al cargar el componente
   useEffect(() => {
-    // Comprobar si el webcomponent está correctamente cargado
+    initFacebookPixel('1183845977056318', 'en_US');
+  }, []);
+
+  useEffect(() => {
+    trackPageView({ path: location.pathname + location.search });
+  }, [location.pathname, location.search]);
+
+  // Efectos al cargar el componente
+  useEffect(() => {
     const webComponent = document.getElementById('lux-register');
-    if (webComponent) {
-      console.log('✅ Webcomponent detectado desde React');
-    } else {
+    if (!webComponent) {
       console.error('❌ Webcomponent no encontrado en el DOM');
     }
-    
-    // Función para manejo alternativo del botón de registro
-    const handleRegisterButtonClick = () => {
-      const webComponent = document.getElementById('lux-register');
-      if (webComponent) {
-        console.log('🚀 Activando webcomponent desde evento delegado en React');
-        webComponent.click();
+
+    const clickHandler = (event) => {
+      if (event.target.id === 'register-button' || event.target.closest('#register-button')) {
+        const wc = document.getElementById('lux-register');
+        if (wc) wc.click();
       }
     };
-    
-    // Delegación de eventos para mayor compatibilidad
-    document.addEventListener('click', (event) => {
-      if (event.target.id === 'register-button' || 
-          event.target.closest('#register-button')) {
-        handleRegisterButtonClick();
-      }
-    });
-    
-    // Limpieza al desmontar
+
+    document.addEventListener('click', clickHandler);
     return () => {
-      document.removeEventListener('click', handleRegisterButtonClick);
+      document.removeEventListener('click', clickHandler);
     };
   }, []);
 
@@ -79,7 +78,8 @@ function App() {
             
             <div className="registration-buttons">
               <div className="registration-option telegram-option" onClick={() => {
-                try { if (window.fbq) { fbq('track', 'Lead', { channel: 'telegram' }); fbq('trackCustom', 'TelegramRegisterClick'); } } catch (_) {}
+                trackEvent('Lead', { channel: 'telegram' });
+                trackCustomEvent('TelegramRegisterClick');
                 window.open(phoneData.telegram_link, '_blank');
               }}>
                 <div className="option-icon">📱</div>
@@ -95,7 +95,8 @@ function App() {
               </div>
               
               <div className="registration-option whatsapp-option" onClick={() => {
-                try { if (window.fbq) { fbq('track', 'Lead', { channel: 'whatsapp' }); fbq('trackCustom', 'WhatsappRegisterClick'); } } catch (_) {}
+                trackEvent('Lead', { channel: 'whatsapp' });
+                trackCustomEvent('WhatsappRegisterClick');
                 window.open(phoneData.whatsapp_link, '_blank');
               }}>
                 <div className="option-icon">💬</div>
